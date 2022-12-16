@@ -13,15 +13,17 @@
     }
 
     .countdown {
-        @apply p-8 text-5xl text-center border-l-2 border-l-black/10
+        font-size: 1.5rem;
+        @apply p-8 text-center border-l-2 border-l-black/10
     }
 
     .countdownLeft {
-        @apply p-8 text-5xl text-center
+        font-size: 1.5;
+        @apply p-8 text-center
     }
 
     .countdown-label {
-        @apply text-center text-black/30 pt-4 text-lg
+        @apply text-center text-black/30 pt-4
     }
 
     .TicketCard {
