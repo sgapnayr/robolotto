@@ -2,9 +2,9 @@ import { useContract, useContractRead } from '@thirdweb-dev/react'
 import CountDown from 'react-countdown'
 
 interface Props {
-    hours: any
-    minutes: any
-    seconds: any
+    hours: number
+    minutes: number
+    seconds: number
     completed: boolean
 }
 
@@ -58,7 +58,7 @@ function CountDownTimer() {
 
     return (
         <div>
-            <CountDown date={new Date(expiration * 1000)} renderer={renderer} />
+            <CountDown date={'12-17-22'} renderer={renderer} />
         </div>
     )
 }
