@@ -112,7 +112,7 @@ const Home: NextPage = () => {
               placeholder='1'
               type="number"
               min={1}
-              max={10}
+              max={20}
               value={Quantity}
               onChange={e => setQuantity(Number(e.target.value))}
             />
