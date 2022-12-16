@@ -18,7 +18,7 @@
     }
 
     .countdownLeft {
-        font-size: 1.5;
+        font-size: 1.5rem;
         @apply p-8 text-center
     }
 

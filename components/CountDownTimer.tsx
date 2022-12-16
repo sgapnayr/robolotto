@@ -19,7 +19,7 @@ function CountDownTimer() {
                     <h2 className='text-center mb-5 animate-pulse'>Ticket sales have now closed for this draw.</h2>
                     <div className='flex space-x-6'>
                         <div className='flex-1 animate-pulse'>
-                            <div className='countdown'>{hours}</div>
+                            <div className='countdownLeft'>{hours}</div>
                             <div className='countdown-label'>Hours</div>
                         </div>
                         <div className='flex-1 animate-pulse'>
