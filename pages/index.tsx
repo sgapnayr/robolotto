@@ -14,8 +14,8 @@ import AdminControls from '../components/AdminControls'
 
 const Home: NextPage = () => {
   const address = useAddress()
-  const [Quantity, setQuantity] = useState<number>(1)
-  const [UserTickets, setUserTickets] = useState<number>(0)
+  const [Quantity, setQuantity] = useState<any>(1)
+  const [UserTickets, setUserTickets] = useState<any>(0)
 
   const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_ADDRESS)
   const { data: remainingTickets } = useContractRead(contract, "RemainingTickets")
@@ -31,18 +31,15 @@ const Home: NextPage = () => {
   const { data: lastWinnerAmount } = useContractRead(contract, "lastWinnerAmount")
   const { data: lotteryOperator } = useContractRead(contract, "lotteryOperator")
 
-  let inverseTickets = 100 - remainingTickets?.toNumber()
-  const winningPercentage = Number(UserTickets / inverseTickets).toFixed(3) * 100
+  let inverseTickets: number = 100 - remainingTickets?.toNumber()
+  const winningPercentage: number = Number(UserTickets / inverseTickets)
 
   const handleClick = async () => {
     if (!ticketPrice) return
-
     const notification = toast.loading('Buying your tickets...')
 
     try {
-      const data = await BuyTickets([{
-        value: ethers.utils.parseEther(Number(ethers.utils.formatEther(ticketPrice) * Quantity).toString())
-      }])
+      const data = await BuyTickets([{ value: ethers.utils.parseEther((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) }])
       toast.success('Tickets Purchased Successfully.', { id: notification })
       console.info('Contract Call Success', data)
       setQuantity(1)
@@ -50,13 +47,12 @@ const Home: NextPage = () => {
       toast.error(`Whoops, something went wrong. Try raising your gas limit.`, { id: notification })
       console.log('Contract Call Failure', error)
     }
-
   }
 
   useEffect(() => {
     if (!tickets) return
     const totalTickets: string[] = tickets
-    const numberOfTickets = totalTickets.reduce((total, ticketAddress) => (ticketAddress === address ? total + 1 : total), 0)
+    const numberOfTickets: number = totalTickets.reduce((total, ticketAddress) => (ticketAddress === address ? total + 1 : total), 0)
     setUserTickets(numberOfTickets)
   }, [tickets, address])
 
@@ -99,7 +95,7 @@ const Home: NextPage = () => {
         <CountDownTimer />
         <div className="stats mt-4 flex justify-between">
           <span className='text-sm'>Probability of winning <span className='opacity-50 text-sm italic'>(Your Tickets / Total Tickets)</span></span>
-          <div className='italic'>{!winningPercentage ? 'Purchase Tickets to Calculate' : '~' + winningPercentage.toFixed(2) + '%'}</div>
+          <div className='italic'>{!winningPercentage ? 'Purchase Tickets to Calculate' : '~' + (parseInt(winningPercentage.toFixed(2)) * 100) + '%'}</div>
         </div>
       </div>
 
@@ -124,7 +120,7 @@ const Home: NextPage = () => {
           <div className='space-y-2 mt-5'>
             <div className='flex items-center justify-between font-bold text-sm italic'>
               <p>Total Cost of Tickets</p>
-              <p>{ticketPrice && Number(ethers.utils.formatEther(ticketPrice.toString()) * Quantity)} {currency}</p>
+              <p>{ticketPrice && ((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString())} {currency}</p>
             </div>
             <div className='flex items-center justify-between text-xs italic'>
               <p>Service Fees</p>
@@ -132,13 +128,13 @@ const Home: NextPage = () => {
             </div>
             <div className='flex items-center justify-between text-xs italic'>
               <p>+ Network Fees</p>
-              <p>{Number(ethers.utils.formatEther(ticketPrice.toString()) * Quantity) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p>
+              <p>{((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p>
             </div>
           </div>
 
           <div className='flex flex-col items-center'>
             <button onClick={handleClick} disabled={expiration?.toString() < Date.now().toString() || remainingTickets <= 0} className='mt-5 w-full LoginButton disabled:from-gray-500 disabled:to-gray-100 disabled:cursor-not-allowed disabled:opacity-30'>
-              Buy {Quantity} Tickets for {ticketPrice && Number(ethers.utils.formatEther(ticketPrice.toString()) * Quantity)} {currency}
+              Buy {Quantity} Tickets for {ticketPrice && ((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString())} {currency}
             </button>
             <div className='LoginButtonReflection'>....</div>
           </div>
