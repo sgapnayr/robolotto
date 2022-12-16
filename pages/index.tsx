@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const [Quantity, setQuantity] = useState<any>(1)
   const [UserTickets, setUserTickets] = useState<any>(0)
 
-  const { contract, isLoading } = useContract('0x21d65803353Ec6a1E968778cDf7246E48cC9B8A1')
+  const { contract, isLoading } = useContract('0xa6cb78B9D8A7Ea8ab3C62A7893B31c76fb56bE60')
   const { data: remainingTickets } = useContractRead(contract, "RemainingTickets")
   const { data: currentWinningReward } = useContractRead(contract, "CurrentWinningReward")
   const { data: ticketPrice } = useContractRead(contract, "ticketPrice")
