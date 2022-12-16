@@ -16,6 +16,7 @@ function Login() {
 
     return (
         <>
+            <Head><title>Login | Web3.0</title><link rel="shortcut icon" href='./favicon.png' /></Head>
             {renderHead()}
             <div className='min-h-screen flex flex-col items-center justify-center Page'>
                 <h1 className='text-4xl opacity-20 italic'>RoboLotto</h1>

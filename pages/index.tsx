@@ -76,7 +76,7 @@ const Home: NextPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col px-2">
-      <Head><title>Crypto Lottery | Web3.0</title></Head>
+      <Head><title>RoboLotto | Web3.0</title><link rel="shortcut icon" href='./favicon.png' /></Head>
       <Header />
       {renderOperator()}
       {renderWinner()}
@@ -204,7 +204,7 @@ const Home: NextPage = () => {
           <div className='stats'>
             <p className='text-lg mb-2'>You have {UserTickets} tickets in this lottery. <span className='opacity-50 text-sm italic'>(Scroll)</span></p>
             <div className='CardContainer'>
-              {Array(UserTickets).fill("").map((_, idx) => <div className='h-20 w-12 rounded-lg flex flex-shrink-0 justify-center items-center italic Card'>{idx + 1}</div>)}
+              {Array(UserTickets).fill("").map((_, idx) => <div key={idx} className='h-20 w-12 rounded-lg flex flex-shrink-0 justify-center items-center italic Card'>{idx + 1}</div>)}
             </div>
           </div>}
       </>
