@@ -11,7 +11,6 @@ import CountDownTimer from '../components/CountDownTimer'
 import toast from 'react-hot-toast'
 import Marquee from 'react-fast-marquee'
 import AdminControls from '../components/AdminControls'
-import { ConnectWallet } from "@thirdweb-dev/react";
 
 const Home: NextPage = () => {
   const address = useAddress()
@@ -71,7 +70,7 @@ const Home: NextPage = () => {
     }
   }
 
-  // if (isLoading) return <Loader />
+  if (isLoading) return <Loader />
 
   if (!address) return <Login />
 

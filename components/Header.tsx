@@ -1,6 +1,7 @@
 import React from 'react'
 import NavButton from './NavButton'
 import { useAddress, useDisconnect } from '@thirdweb-dev/react'
+import { ConnectWallet } from "@thirdweb-dev/react";
 
 function Header({ }) {
     const address = useAddress() as string | undefined
@@ -15,7 +16,8 @@ function Header({ }) {
                     <p className='text-xs text-black/50 truncate'>{address ? 'User ' + address?.substring(0, 4) + '...' + address?.substring(address.length, address.length - 4) : 'Please Login.'}</p>
                 </div>
             </div>
-            <div className='flex flex-col ml-auto text-right' >
+            <div className='flex flex-col justify-end items-end ml-auto text-right' >
+                <ConnectWallet colorMode='light' />
                 <NavButton onClick={disconnect} isActive={false} title='Log Out' />
             </div>
         </header>
