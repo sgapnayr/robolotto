@@ -136,6 +136,7 @@
 
     .LogoutButton {
         transition: .2s all ease-in-out;
+        margin-right: 1rem;
     }
 
     /* Marquee */

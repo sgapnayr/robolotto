@@ -12,13 +12,13 @@ function Header({ }) {
             <div className="flex items-center space-x-2 ImageOverlayLoader">
                 <img src={`https://robohash.org/test${address}`} alt="..." />
                 <div>
-                    <h1 className='text-lg font-bold'>Robo Lotto</h1>
-                    <p className='text-xs text-black/50 truncate'>{address ? 'User ' + address?.substring(0, 4) + '...' + address?.substring(address.length, address.length - 4) : 'Please Login.'}</p>
+                    {/* <h1 className='text-lg font-bold'>Robo Lotto</h1>
+                    <p className='text-xs text-black/50 truncate'>{address ? 'User ' + address?.substring(0, 4) + '...' + address?.substring(address.length, address.length - 4) : 'Please Login.'}</p> */}
                 </div>
             </div>
+            <ConnectWallet accentColor="#fcfcfc" colorMode='light' className='LogoutButton' />
             <div className='flex flex-col justify-end items-end ml-auto text-right' >
-                <ConnectWallet colorMode='light' />
-                <NavButton onClick={disconnect} isActive={false} title='Log Out' />
+                {/* <NavButton onClick={disconnect} isActive={false} title='Log Out' /> */}
             </div>
         </header>
     )

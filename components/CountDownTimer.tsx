@@ -35,7 +35,7 @@ function CountDownTimer() {
             )
         } else {
             return (
-                <div className='flex flex-col justify-center items-center w-full'>
+                <div className='flex flex-col justify-center items-center'>
                     <h3 className='text-sm mb-2 italic'>Time Remaining</h3>
                     <div className='flex space-x-6 w-full'>
                         <div className='flex-1'>
