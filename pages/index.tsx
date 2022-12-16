@@ -128,7 +128,7 @@ const Home: NextPage = () => {
             </div>
             <div className='flex items-center justify-between text-xs italic'>
               <p>+ Network Fees</p>
-              <p>{((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p>
+              {/* <p>{((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p> */}
             </div>
           </div>
 
