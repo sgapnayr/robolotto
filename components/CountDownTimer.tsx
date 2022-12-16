@@ -39,7 +39,7 @@ function CountDownTimer() {
                     <h3 className='text-sm mb-2 italic'>Time Remaining</h3>
                     <div className='flex space-x-6 w-full'>
                         <div className='flex-1'>
-                            <div className='countdownLeft text-md'>{hours}</div>
+                            <div className='countdownLeft text-md'>{Number(hours)}</div>
                             <div className='countdown-label'>Hours</div>
                         </div>
                         <div className='flex-1'>

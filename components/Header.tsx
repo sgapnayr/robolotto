@@ -5,7 +5,7 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 
 function Header({ }) {
     const address = useAddress() as string | undefined
-    const disconnect = useDisconnect()
+    // const disconnect = useDisconnect()
 
     return (
         <header className='grid grid-cols-2 md:grid-cols-2 justify-between p-4 items-center'>
