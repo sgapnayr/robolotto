@@ -75,13 +75,13 @@ const Home: NextPage = () => {
   if (!address) return <Login />
 
   return (
-    <div className="min-h-screen flex flex-col px-2">
+    <div className="min-h-screen flex flex-col">
       <Head><title>RoboLotto | Web3.0</title><link rel="shortcut icon" href='./favicon.png' /></Head>
       <Header />
       {renderOperator()}
       {renderWinner()}
 
-      <div className='flex justify-between space-x-1'>
+      <div className='flex justify-between space-x-1 px-2'>
         <div className='stats'>
           <h2 className='text-sm'>Total Pool</h2>
           <p className='text-xl'>{currentWinningReward && ethers.utils.formatEther(currentWinningReward.toString())} {currency}</p>
