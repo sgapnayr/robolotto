@@ -70,7 +70,7 @@ const Home: NextPage = () => {
     }
   }
 
-  if (isLoading) return <Loader />
+  // if (isLoading) return <Loader />
 
   if (!address) return <Login />
 
