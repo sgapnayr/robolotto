@@ -18,7 +18,7 @@ function Login() {
         <>
             <Head><title>Login | Web3.0</title><link rel="shortcut icon" href='./favicon.png' /></Head>
             {renderHead()}
-            <div className='min-h-screen flex flex-col items-center justify-center Page'>
+            <div className='min-h-screen flex flex-col items-center justify-center Page pb-24'>
                 <h1 className='text-4xl opacity-20 italic'>RoboLotto</h1>
                 <p className='italic text-center'>A crypto lottery, built on the Polygon MATIC™ Mumbai Network</p>
                 <div className='ImageOverlay'>
