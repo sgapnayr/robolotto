@@ -32,7 +32,7 @@ const Home: NextPage = () => {
   const { data: lotteryOperator } = useContractRead(contract, "lotteryOperator")
 
   let inverseTickets: number = 100 - remainingTickets?.toNumber()
-  const winningPercentage: number = Number(UserTickets / inverseTickets)
+  const winningPercentage: number = Number(UserTickets / inverseTickets) * 100
 
   const handleClick = async () => {
     if (!ticketPrice) return
@@ -95,7 +95,7 @@ const Home: NextPage = () => {
         <CountDownTimer />
         <div className="stats mt-4 flex justify-between">
           <span className='text-sm'>Probability of winning <span className='opacity-50 text-sm italic'>(Your Tickets / Total Tickets)</span></span>
-          <div className='italic'>{!winningPercentage ? 'Purchase Tickets to Calculate' : '~' + (parseInt(winningPercentage.toFixed(2)) * 100) + '%'}</div>
+          <div className='italic'>{!winningPercentage ? 'Purchase Tickets to Calculate' : '~' + ((winningPercentage.toFixed(2))) + '%'}</div>
         </div>
       </div>
 
