@@ -17,7 +17,7 @@ const Home: NextPage = () => {
   const [Quantity, setQuantity] = useState<any>(1)
   const [UserTickets, setUserTickets] = useState<any>(0)
 
-  const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_ADDRESS)
+  const { contract, isLoading } = useContract('0x21d65803353Ec6a1E968778cDf7246E48cC9B8A1')
   const { data: remainingTickets } = useContractRead(contract, "RemainingTickets")
   const { data: currentWinningReward } = useContractRead(contract, "CurrentWinningReward")
   const { data: ticketPrice } = useContractRead(contract, "ticketPrice")
@@ -128,7 +128,7 @@ const Home: NextPage = () => {
             </div>
             <div className='flex items-center justify-between text-xs italic'>
               <p>+ Network Fees</p>
-              {/* <p>{((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p> */}
+              <p>{((Number(ethers.utils.formatEther(ticketPrice)) * Quantity).toString()) + Number(ethers.utils.formatEther(ticketCommission.toString()))}</p>
             </div>
           </div>
 
