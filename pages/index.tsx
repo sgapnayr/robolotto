@@ -94,7 +94,7 @@ const Home: NextPage = () => {
       <div className='mt-5 mb-3'>
         <CountDownTimer />
         <div className="stats mt-4 flex justify-between">
-          <span className='text-sm'>Probability of winning <span className='opacity-50 text-sm italic'>(Your Tickets / Total Tickets)</span></span>
+          <span className='text-sm'>Probability of Winning <span className='opacity-50 text-sm italic'>(Your Tickets / Total Tickets)</span></span>
           <div className='italic'>{!winningPercentage ? 'Purchase Tickets to Calculate' : '~' + ((winningPercentage.toFixed(2))) + '%'}</div>
         </div>
       </div>
